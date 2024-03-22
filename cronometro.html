@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronometro</title>
+    <!-- link page icon -->
+    <link rel="icon" href="assets/img/cronometer-icon.svg">
+    <!-- link stylesheet custom -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- link stylesheet cronometro -->
+    <link rel="stylesheet" href="assets/css/cronometro.css">
+    <!-- link google font icon -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<body>
+
+    <div class="header">
+        <div class="logo-icon">
+            <span>Reloj</span>
+        </div>
+        <div class="btn-menu">
+            <div class="sun-moon">
+                <span class="material-symbols-outlined">dark_mode</span>
+            </div>
+            <div class="btn-responsive">
+                <span class="material-symbols-outlined">menu</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+
+        <div class="nav">
+            <ul>
+                <li><a href="reloj.html"><span class="material-symbols-outlined">schedule</span>Reloj</a></li>
+                <li class="active"><a href="cronometro.html"><span class="material-symbols-outlined">timer</span>Cronometro</a></li>
+                <li><a href="temporizador.html"><span class="material-symbols-outlined">timelapse</span>Temporizador</a></li>
+                <li><a href="alarma.html"><span class="material-symbols-outlined">alarm</span>Alarma</a></li>
+                <li><a href="calendario.html"><span class="material-symbols-outlined">calendar_month</span>Calendario</a></li>
+            </ul>
+        </div>
+        
+        <div class="content">
+
+            <div class="tools">
+                <span class="material-symbols-outlined">zoom_out</span>
+                <span class="material-symbols-outlined">zoom_in</span>
+                <span class="material-symbols-outlined">zoom_out_map</span>
+            </div>
+
+            <div class="timer-conteiner">
+				<div class="timer-display">
+					<span class="hh">00:</span>
+                    <span class="mm">00:</span>
+					<span class="ss">00</span>
+					<span class="ms">.00</span>
+				</div>
+				<div class="buttons">
+					<button id="start-btn" onclick="start()">Iniciar</button>
+					<button id="pause-btn" onclick="pause()" disabled>Pausar</button>
+					<button id="restart-btn" onclick="start()" disabled>Continuar</button>
+					<button id="reset-btn" onclick="reset()" disabled>Reiniciar</button>
+					<button id="flag-btn" onclick="flag()" disabled>Bandera</button>
+				</div>
+			</div>
+
+            <div class="flag-conteiner">
+			    <h3><span class="material-symbols-outlined">flag</span></h3>
+			    <div class="flag-box">
+				<table class="flag-table">
+					<thead>
+						<tr>
+							<th>Vuelta</th>
+							<th>Tiempos Parciales</th>
+							<th>Tiempo Total</th>
+						</tr>
+					</thead>
+					<tbody class="table-body">
+						<!-- celda de banderas -->
+                        
+					</tbody>
+				</table>
+			</div>
+            
+		</div>
+            
+        </div>
+    </div>
+
+    
+<!-- link script main -->
+<script src="assets/script/script.js"></script>
+<!-- link script cronometro -->
+<script src="assets/script/cronometro.js"></script>
+</body>
+</html>

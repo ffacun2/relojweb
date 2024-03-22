@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alarma</title>
+    <!-- link page icon -->
+    <link rel="icon" href="assets/img/alarm-icon.svg">
+    <!-- link stylesheet custom -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- link stylesheet alarma -->
+    <link rel="stylesheet" href="assets/css/alarma.css">
+    <!-- link google font icon -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <!-- link font-awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <div class="header">
+        <div class="logo-icon">
+            <span>Reloj</span>
+        </div>
+        <div class="btn-menu">
+            <div class="sun-moon">
+                <span class="material-symbols-outlined">dark_mode</span>
+            </div>
+            <div class="btn-responsive">
+                <span class="material-symbols-outlined">menu</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+
+        <div class="nav">
+            <ul>
+                <li><a href="reloj.html"><span class="material-symbols-outlined">schedule</span>Reloj</a></li>
+                <li><a href="cronometro.html"><span class="material-symbols-outlined">timer</span>Cronometro</a></li>
+                <li><a href="temporizador.html"><span class="material-symbols-outlined">timelapse</span>Temporizador</a></li>
+                <li class="active"><a href="alarma.html"><span class="material-symbols-outlined">alarm</span>Alarma</a></li>
+                <li><a href="calendario.html"><span class="material-symbols-outlined">calendar_month</span>Calendario</a></li>
+            </ul>
+        </div>
+        
+        <div class="content">
+
+            <div class="tools">
+                <span class="material-symbols-outlined">zoom_out</span>
+                <span class="material-symbols-outlined">zoom_in</span>
+                <span class="material-symbols-outlined">zoom_out_map</span>
+            </div>
+
+            <div class="box-conteiner">
+                <div class="timer-box">
+                    <div class="logo">
+                        <img src="assets/img/alarm-img.svg">
+                    </div>
+                    <div class="timer-display">00:00:00</div>
+                    <div class="date"></div>
+                    <button class="add-btn">Agregar Alarma</button>
+                </div>
+
+                <div class="alarm-active">
+                    <!-- alarm set -->
+                <!-- <div id="1" class="alarm">
+                        <p></p>
+                        <div class="time" data-value="00:00">00:00</div>
+                        <div><input class="check" type="checkbox" checked="" onclick="activated(this)"></div>
+                        <div class="settings">
+                            <i class="fas fa-ellipsis" onclick="showMenu(this)"></i>
+                            <ul class="menu">
+                                <li onclick="updateAlarm(1)"><i class="fas fa-pen"></i>Editar</li>
+                                <li onclick="deleteAlarm(1)"><i class="fas fa-trash"></i>Eliminar</li>
+                            </ul>
+                        </div>
+                    </div> -->
+        
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <div class="popup-box">
+
+            <div class="head">
+                <h3>Nueva Alarma</h3>
+                <i class="fas fa-times close"></i>
+            </div>
+
+            <div class="input">
+                
+                <div class="title">
+                    <label>Titulo</label>
+                    <input type="text" id="alarmTitle">
+                </div>
+
+                <div class="time">
+
+                    <div class="hours">
+                        <label>Horas</label>
+                        <div class="input-hours">
+                            <span><button class="btn-angle minus hour"><i class="fas fa-angle-left"></i></button></span>                        
+                            <select name="hours" id="hours">
+                                
+                            </select>
+                            <span><button class="btn-angle plus hour"><i class="fas fa-angle-right"></i></button></span>                
+                        </div>
+                    </div>
+
+                    <div class="minutes">
+                        <label>Minutos</label>
+                        <div class="input-minutes">
+                            <span><button class="btn-angle minus minute"><i class="fas fa-angle-left minute"></i></button></span>
+                            <select name="minutes" id="minutes">
+                               
+                            </select>
+                            <span><button class="btn-angle plus minute"><i class="fas fa-angle-right minute"></i></button></span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+                <div class="options">
+                    <div class="song">
+                        <label>Sonido</label>
+                        <div class="input-song">
+                            <select name="song" id="songs">
+                                
+                            </select>
+                            <span><button onclick="playSong()"><i class="fas fa-play"></i></button></span>
+                        </div>
+                    </div>
+                    <div class="days">
+                        <label>Dias</label>
+                        <div class="input-day">
+                            <div class="day">
+                                <label>D</label>
+                                <input type="checkbox" class="date-check">
+                            </div>
+                            <div class="day">
+                                <label>L</label>
+                                <input type="checkbox" class="date-check">
+                            </div>
+                            <div class="day">
+                                <label>M</label>
+                                <input type="checkbox" class="date-check">
+                            </div>
+                            <div class="day">
+                                <label>M</label>
+                                <input type="checkbox" class="date-check">
+                            </div>
+                            <div class="day">
+                                <label>J</label>
+                                <input type="checkbox" class="date-check">
+                            </div>
+                            <div class="day">
+                                <label>V</label>
+                                <input type="checkbox" class="date-check">
+                            </div>
+                            <div class="day">
+                                <label>S</label>
+                                <input type="checkbox" class="date-check">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btn-box">
+                    <button id="cancel" class="close">Cancelar</button>
+                    <button id="addAlarm">Agregar</button>
+                </div>
+
+            </div>
+            
+
+        </div>
+    </div>
+    
+    <div class="box-confirm">
+        <div class="confirm-conteiner">
+            <div class="confirm-content">
+                <div class="message">
+                    <p>¿Deseas Eliminar Esta Alarma?</p>
+                </div>
+                 <div class="btn-box">
+                    <button id="cancel" class="close">Cancelar</button>
+                    <button id="accept-delete">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="alert-clock">
+        <div class="confirm-conteiner">
+            <div class="confirm-content">
+                <div class="message">
+                    <p>¡Alerta alarma!</p>
+                </div>
+                 <div class="btn-box">
+                    <button id="accept" class="close">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+<!-- link script main -->
+<script src="assets/script/script.js"></script>
+<script src="assets/script/semanas.js"></script>
+<!-- link script alarma -->
+<script src="assets/script/alarma.js"></script>
+</body>
+</html>

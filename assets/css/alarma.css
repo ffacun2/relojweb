@@ -1,0 +1,306 @@
+
+.wrapper,
+.box-confirm,
+.alert-clock {
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+    opacity: 0;
+    transition: all .4s ease;
+}
+
+.wrapper.show,
+.box-confirm.show,
+.alert-clock.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+.timer-box,
+.logo,
+.timer-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.timer-box {
+    padding: 1rem;
+}
+
+.logo img {
+    width: 15rem;
+    height: 15rem;
+    
+}
+
+.box-conteiner .timer-display {
+    font-size: 6rem;
+    padding: 1rem;
+    font-family: 'digital';
+    color: var(--black);
+}
+
+.box-conteiner .date {
+    text-align: center;
+    padding-bottom: 1rem;
+    font-size: 1.5rem;
+    color: var(--black);
+}
+
+.add-btn {
+    font-size: 2rem;
+    padding: .5rem 1rem;
+    background-color: #007bff;
+    color: #fff;
+    /* border-radius: 1rem; */
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.alarm-active {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--black);
+}
+
+.alarm-active .alarm {
+    display: flex;
+    padding: 1rem;
+    border-bottom: .1rem solid #bbb;
+    font-size: 1.3rem;
+    /* justify-content: space-around; */
+    width: 50%
+    /* text-align: center; */
+}
+
+.alarm-active .alarm div {
+    border-left: .1rem solid #bbb;
+    padding: .5rem 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.alarm-active .alarm div i {
+    cursor: pointer;
+}
+
+.alarm-active .alarm p {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;    
+    display: flex;
+    align-items: center;
+    flex-grow: 2;
+}
+
+.fa-ellipsis {
+    transform: rotate(90deg);
+}
+
+.alarm .settings{
+    position: relative;
+}
+
+.alarm .menu {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background-color: var(--bg-color-popup);
+    font-size: 1rem;
+    list-style: none;
+    box-shadow: .1rem .1rem .5rem rgba(0, 0, 0, 0.4);
+    transform-origin: bottom right;
+    transition: transform .2s ease;
+    transform: scale(0);
+}
+
+.alarm .settings.show .menu {
+    transform: scale(1);
+}
+
+.alarm .menu li {
+    background-color: var(--bg-color-popup);
+    height: 2.5rem;
+    display: flex;
+    padding: 1rem 1rem;
+    align-items: center;
+    color: var(--black);
+    cursor: pointer;
+}
+
+.alarm .menu li:hover,
+.alarm .menu li:hover *{
+    background-color: #bbb;
+    color: black;
+}
+
+.alarm-active .alarm .menu li i {
+    padding-right: .5rem;
+    font-size: .8rem;  
+    background: transparent;
+}
+
+.alarm input[type="checkbox"] {
+    appearance: none;
+    height: 1.8rem;
+    width: 3.5rem;
+    background-color: #e2e2ec;
+    border-radius: 1rem;
+    position: relative;
+    cursor: pointer;
+    outline:none;
+    border: .1rem solid #bbb;
+}
+
+.alarm input[type="checkbox"]:before {
+    position: absolute;
+    content: "";
+    background-color: #757683;
+    height: 1.4rem;
+    width: 1.4rem;
+    border-radius: 50%;
+    top: .15rem;
+    left: .3rem;
+    transition: all .3s linear;
+}
+
+.alarm input[type="checkbox"]:checked {
+    background-color: #d2e2ff;
+}
+
+.alarm input[type="checkbox"]:checked:before {
+    background-color: #377dff;
+    left: 1.7rem;
+}
+
+.popup-box,
+.confirm-conteiner {
+    background-color: var(--bg-color-popup);
+    font-size: 1.5rem;
+    width: 40rem;
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #377dff;
+    color: #fff;
+    padding: .5rem 1rem;
+}
+.head i {
+    cursor: pointer;
+}
+
+.input label {
+    font-size: 1.2rem;
+    color: var(--black);
+}
+
+.input .title,
+.input .time,
+.input .btn-box,
+.input .options,
+.confirm-conteiner .message,
+.confirm-conteiner .btn-box {
+    padding: 1rem 2rem .5rem;
+}
+
+.input .title input {
+    width: 100%;
+    height: 2rem;
+    font-size: 1.2rem;
+    padding: 0 .5rem;
+    outline: none;
+    border: .1rem solid #bbb;
+}
+
+.input .time,
+.input .options,
+.input-day{
+    display: flex;
+    justify-content: space-between;
+}
+
+.time select,
+.time button,
+.song select,
+.song button {
+    border: .1rem solid #bbb;
+    font-size: 1rem;
+    color: #2f4f4f;
+    cursor: pointer;
+}
+
+.time button,
+.song button {
+    padding: .5rem 1rem;
+}
+.time select,
+.song select {
+    background-color: #fff;
+    padding: .5rem 4rem;
+}
+
+.input-hours,
+.input-minutes,
+.input-song,
+.input-day {
+    display: flex;
+}
+
+.input .options {
+    padding-bottom: 2rem;
+}
+
+.options .days .day *{
+    display: block;
+}
+
+.day { 
+    padding: 0 .7rem;
+}
+
+.btn-box {
+    display: flex;
+    justify-content: space-around;
+    border-top: .1rem solid var(--border-color);
+}
+.btn-box button{
+    padding: .5rem 1rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+button#accept-delete,
+button#accept,
+button#addAlarm {
+    background-color: #377dff;
+    color: #fff;
+}
+
+button#accept-delete:hover,
+button#accept:hover,
+button#addAlarm:hover {
+    opacity: .8;
+}
+
+.confirm-conteiner .message {
+    text-align: center;
+    color: var(--black);
+}
