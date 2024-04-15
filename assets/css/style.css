@@ -9,6 +9,7 @@
     --grey-hover: #d3d3d3;
     --border-color: rgba(0,0,0,0.3);
     --bg-color-popup: #fff;
+    --bg-color-white: #FFF;
 }
 
 *,
@@ -26,6 +27,7 @@
   --black: #fff;
   --bg-color-grey: #000;
   --bg-color-popup: #444;
+  --bg-color-white: #444;
 }
 
  html  {
@@ -117,7 +119,7 @@
  }
 
 .content * {
-   background-color: var(--white);
+   background-color: var(--bg-color-white);
 }
 
 .content .tools {

@@ -3,6 +3,12 @@ html {
   font-size: 100%;
 }
 
+.content .tools{
+  background-color: var(--white);
+}
+.tools span{
+  background-color: var(--white);
+}
 
 .container {
   width: 100%;

@@ -61,21 +61,22 @@ const renderCalendar = () => {
 	// console.log('index primer dia ',firstDayIndex);
 	// console.log('index ultimo dia',lastDayIndex);
 	// console.log('resto:',42-firstDayIndex-lastDay);
-	// const nextDay = 7 - lastDayIndex - 1;
+	const nextDay = 7 - lastDayIndex - 1;
 	const relleno = 42 - firstDayIndex - lastDay;
 
 
 	let days = "";
-
+// console.log(prevLastDay-16);
 	for (let x = firstDayIndex; x > 0; x--) {
-		days += `<div class="prev-date">${prevLastDay - x + 1}</div>`;
+		if((prevLastDay-x+1) == new Date().getDate() && date.getMonth() == new Date().getMonth() && date.getFullYear() === new Date().getFullYear() )
+			days += `<div class="prev-date today">${prevLastDay - x + 1}</div>`;
+		else
+			days += `<div class="prev-date">${prevLastDay - x + 1}</div>`;
 	}
 
 	for (let i = 1; i <= lastDay; i++) {
 		if (
-			i === new Date().getDate() &&
-			date.getMonth() === new Date().getMonth() &&
-			date.getFullYear() === new Date().getFullYear()
+			i === new Date().getDate() && date.getMonth() === new Date().getMonth() && date.getFullYear() === new Date().getFullYear()
 		) {
 			days += `<div class="today">${i}</div>`;
 		} else {
@@ -84,9 +85,12 @@ const renderCalendar = () => {
 	}
 
 	for (let j = 1; j <= relleno; j++) {
-		days += `<div class="next-date">${j}</div>`;
-		monthDays.innerHTML = days;
+		if(j == new Date().getDate() && date.getMonth() == new Date().getMonth() && date.getFullYear() === new Date().getFullYear() )
+			days += `<div class="next-date today">${j}</div>`;		
+		else
+			days += `<div class="next-date">${j}</div>`;
 	}
+	monthDays.innerHTML = days;
 };
 
 document.querySelector(".prev").addEventListener("click", () => {

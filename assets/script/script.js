@@ -15,7 +15,7 @@ dark_mode.addEventListener('click', (e) => {
         localStorage.setItem("dark-mode",false);
     }
 
-    console.log(localStorage.getItem("dark-mode"));
+    // console.log(localStorage.getItem("dark-mode"));
 })
 
 menuBtn.addEventListener('click', (e) => {
@@ -36,3 +36,46 @@ document.addEventListener("DOMContentLoaded", () => {
         dark_mode.innerHTML = "light_mode";
     }
 })
+
+document.getElementById("zoom").addEventListener("click",e => {
+    icon = document.querySelector(".content");
+    if(!document.fullscreenElement){
+        entrarEnPantallaCompleta(icon);
+        e.target.innerHTML = "zoom_in_map";
+    }
+    else{
+        salirDePantallaCompleta();
+        e.target.innerHTML = "zoom_out_map"
+    }
+})
+
+ function entrarEnPantallaCompleta(elemento) {
+		if (elemento.requestFullscreen) {
+			elemento.requestFullscreen();
+		} else if (elemento.mozRequestFullScreen) {
+			/* Firefox */
+			elemento.mozRequestFullScreen();
+		} else if (elemento.webkitRequestFullscreen) {
+			/* Chrome, Safari y Opera */
+			elemento.webkitRequestFullscreen();
+		} else if (elemento.msRequestFullscreen) {
+			/* IE/Edge */
+			elemento.msRequestFullscreen();
+		}
+ }
+
+
+function salirDePantallaCompleta() {
+	if (document.exitFullscreen) {
+		document.exitFullscreen();
+	} else if (document.mozCancelFullScreen) {
+		/* Firefox */
+		document.mozCancelFullScreen();
+	} else if (document.webkitExitFullscreen) {
+		/* Chrome, Safari y Opera */
+		document.webkitExitFullscreen();
+	} else if (document.msExitFullscreen) {
+		/* IE/Edge */
+		document.msExitFullscreen();
+	}
+}
