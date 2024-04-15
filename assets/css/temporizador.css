@@ -29,14 +29,14 @@
     overflow: auto;
 }
 .content * {
-    background-color: var(--white);
+    background-color: var(--bg-color-white);
 }
 
 .content .tools {
     display: flex;
     justify-content: end;
-    padding: .5rem 1rem 10rem;    
 }
+
 .content .tools span {
     margin: 0 .5rem;
     cursor: pointer;

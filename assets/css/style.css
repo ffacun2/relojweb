@@ -125,7 +125,8 @@
 .content .tools {
    display: flex;
    justify-content: end;
-   padding: 1rem 1rem 5rem;    
+   padding: 1rem 1rem 5rem;  
+   background-color: var(--bg-color-white);  
 }
 .content .tools span {
    margin: 0 .5rem;
