@@ -109,13 +109,11 @@
 }
 
 .box-conteiner {
-    display: flex;
-    /* grid-template-columns:repeat(5,1fr);
-    grid-template-rows: 8rem; */
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
     margin-top: 2rem;
     gap: 1rem;
-    background:transparent
+    background:transparent;
 }
 
 .location-time,

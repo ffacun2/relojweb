@@ -61,7 +61,8 @@ closeBox.forEach( e => {
 
 addTime.addEventListener('click', () => {
 	titleTag.focus();
-	titleTag.value = `${countryTag.options[countryTag.selectedIndex].text}, ${zoneTag.options[zoneTag.selectedIndex].text}`;
+	if(!isUpdate)
+		titleTag.value = `${countryTag.options[countryTag.selectedIndex].text}, ${zoneTag.options[zoneTag.selectedIndex].text}`;
 	newTimeBox.classList.add('show');
 })
 
@@ -154,25 +155,28 @@ function updateWatch(id) {
 	document.querySelector(".head h3").innerHTML = "Editar Reloj";
 	addWatch.innerHTML = "Editar";
 	titleTag.value = watches[id].title;
-	// countryTag.value = watches[id].country;
-	// zoneTag.value = watches[id].zone;
+	countryTag.value = watches[id].country;
+	countryChange();
+	zoneTag.value = watches[id].zone;
 	addTime.click();
 }
 
 
-countryTag.addEventListener('change', () => {
+
+function countryChange (){
 	// console.log(paises[countryTag.value]['timeZone'])
 	document.querySelectorAll('.time-zone option').forEach( opc => opc.remove());
-
+	
 	Object.entries(paises[countryTag.value]["timeZone"]).forEach(([value,key]) => {
 		// console.log(value,key)
 		let tag = `<option value="${value}">${key}</option>`;
 		zoneTag.insertAdjacentHTML("beforeend", tag);
 	})
 	titleTag.value = `${countryTag.options[countryTag.selectedIndex].text}, ${zoneTag.options[zoneTag.selectedIndex].text}`;
-
+	
 	// titleTag.value = `${countryTag.target}, ${paises[countryTag.value]["timeZone"][0]}`;
-})
+}
+countryTag.addEventListener('change',countryChange);
 
 zoneTag.addEventListener('change', () => {
 	titleTag.value = `${countryTag.options[countryTag.selectedIndex].text}, ${zoneTag.options[zoneTag.selectedIndex].text}`;
@@ -188,7 +192,7 @@ zoneTag.addEventListener('change', () => {
 function localTime() {
 		let fixed = new Date();
 	locationGral.innerHTML = "Hora local"
-	timeGral.innerHTML = `${fixed.getHours()}:${fixed.getMinutes()}:${fixed.getSeconds()}`
+	timeGral.innerHTML = `${fixed.getHours().toString().padStart(2,"0")}:${fixed.getMinutes().toString().padStart(2,"0")}:${fixed.getSeconds().toString().padStart(2,"0")}`
 	// console.log(dateGral)
 	dateGral.innerHTML = `${semana[fixed.getDay()]}, ${fixed.getDate()} de ${meses[fixed.getMonth()]} de ${fixed.getFullYear()}`
 
