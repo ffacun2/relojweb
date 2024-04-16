@@ -91,9 +91,10 @@ function showTime() {
                     </div>
                     <div class="display">
                         <div class="time">${getTZDate(watches[index].country,watches[index].zone)}</div>
-                        <div class="difference">Hoy,-1H</div>
-                    </div>
-        `;
+						</div>
+						`;
+                        // Anulo momentaneamente --> <div class="difference">Hoy,-1H</div>
+
 		document.querySelector(".box-conteiner").insertBefore(divWatch,document.querySelector(".box-conteiner").children[0]);
 	});
 }
@@ -124,14 +125,18 @@ addWatch.addEventListener("click", (e) => {
 	showTime();
 });
 
+//                                                                                 arreglar el horario fijo
 document.querySelectorAll('.fa-thumbtack').forEach( elemento => {
+	elemento.parentElement.parentElement.parentElement.classList.remove('selected');
 	
 	elemento.addEventListener('click', () => {
 		let select = document.querySelector(".location-time.selected")
 		
 		if ( select != null ){
 			select.classList.toggle('selected');
-			// console.log(select)
+			console.log("click")
+
+			
 		}
 		elemento.parentElement.parentElement.parentElement.classList.add('selected');
 	})
@@ -240,4 +245,13 @@ function runTime() {
 window.onload = () => {
 	setInterval(runTime,1000);
 }
+// console.log(getTZDate("AR","America/Argentina/Cordoba"))
+// console.log(getTZDate("AR","America/Argentina/Salta"))
+// console.log(getTZDate("AR","America/Argentina/Jujuy"))
+// console.log(getTZDate("AR","America/Argentina/Tucuman"))
+// console.log(getTZDate("AR","America/Argentina/Catamarca"))
+// console.log(getTZDate("AR","America/Argentina/La_Rioja"))
+// console.log(getTZDate("AR","America/Argentina/San_Luis"))
+// console.log(getTZDate("AR","America/Argentina/Rio_Gallegos"))
+// console.log(getTZDate("AR","America/Argentina/Ushuaia"))
 
