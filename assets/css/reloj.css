@@ -151,6 +151,7 @@
     padding: .5rem 1rem;
 }
 
+
 .display .time {
     font-size: 3rem;
     font-family: 'digital';
@@ -162,7 +163,9 @@
 }
 
 .settings {
+    display: flex;
     position: relative;
+    padding-right: .5rem;
 }
 
 .fa-ellipsis {
@@ -173,7 +176,7 @@ ul.menu {
     display: none;
     position: absolute;
     bottom: 1rem;
-    left: 1.5rem;
+    right: 1rem;
     font-size: 1rem;
     box-shadow: .1rem .1rem .1rem rgba(0, 0, 0, 0.3);
 }
