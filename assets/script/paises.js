@@ -1,6 +1,6 @@
 
 const paises = {
-	AR: {
+	"es-AR": {
 		name: "Argentina",
 		timeZone: {
 			"America/Argentina/Buenos_Aires": "Buenos Aires",
@@ -10,7 +10,7 @@ const paises = {
 			"America/Argentina/Ushuaia": "Ushuaia",
 		},
 	},
-	AU: {
+	"AU": {
 		name: "Australia",
 		timeZone: {
 			"Australia/Lord_Howe": "Lord Howe",
@@ -21,58 +21,58 @@ const paises = {
 			"Australia/Darwin": "Darwin",
 			"Australia/Adelaide": "Adelaide",
 			"Australia/Eucla": "Eucla",
-		}
+		},
 	},
-	CA: {
+	"CA": {
 		name: "Canada",
 		timeZone: {
-			'America/Toronto': "Toronto",
-			'America/Montreal': "Montreal",
-			'America/Regina': "Regina",
-			'America/Cambridge_Bay': "Cambridge Bay",
-			'America/Vancouver': "Vancouver",
-			'America/Whitehorse': "Whitehorse",
-			'America/Dawson': "Dawson",
-			'America/Dawson': "Dawson",
-		}
+			"America/Toronto": "Toronto",
+			"America/Montreal": "Montreal",
+			"America/Regina": "Regina",
+			"America/Cambridge_Bay": "Cambridge Bay",
+			"America/Vancouver": "Vancouver",
+			"America/Whitehorse": "Whitehorse",
+			"America/Dawson": "Dawson",
+			"America/Dawson": "Dawson",
+		},
 	},
-	DK: {
+	"DK": {
 		name: "Dinamarca",
 		timeZone: {
-			"Europe/Copenhagen": "Copenhague"
-		}
+			"Europe/Copenhagen": "Copenhague",
+		},
 	},
-	ES: {
+	"ES": {
 		name: "España",
 		timeZone: {
 			"Europe/Madrid": "Madrid",
 		},
 	},
-	FR: {
+	"FR": {
 		name: "Francia",
 		timeZone: {
-			'Europe/Paris': "Paris"
-		}
+			"Europe/Paris": "Paris",
+		},
 	},
-	GB: {
+	"GB": {
 		name: "Reino Unido",
 		timeZone: {
 			"Europe/London": "Londres",
 		},
 	},
-	IT: {
+	"IT": {
 		name: "Italia",
 		timeZone: {
-			"Europe/Rome": "Roma"
-		}
+			"Europe/Rome": "Roma",
+		},
 	},
-	JP: {
+	"JP": {
 		name: "Japon",
 		timeZone: {
-			'Asia/tokyo': "Tokio"
-		}
+			"Asia/tokyo": "Tokio",
+		},
 	},
-	MX: {
+	"MX": {
 		name: "Mexico",
 		timeZone: {
 			"America/Mexico_City": "Ciudad Mexico",
@@ -86,19 +86,19 @@ const paises = {
 			"America/Bahia_Banderas": "Bahia Banderas",
 		},
 	},
-	PT: {
+	"PT": {
 		name: "Portugal",
 		timeZone: {
-			'Europe/Lisbon': "Lisboa"
-		}
+			"Europe/Lisbon": "Lisboa",
+		},
 	},
-	RU :{
+	"RU": {
 		name: "Rusia",
 		timeZone: {
-			'Europe/Moscow': "Moscu"
-		}
+			"Europe/Moscow": "Moscu",
+		},
 	},
-	US: {
+	"US": {
 		name: "Estados Unidos",
 		timeZone: {
 			"America/New_York": "Nueva York",
@@ -109,18 +109,18 @@ const paises = {
 			"America/Adak": "Alaska, Adak",
 			"America/Anchorage": "Alaska, Anchorange",
 		},
-	BR: {
+	"BR": {
 		name: "Brasil",
 		timeZone: {
-			"America/Belem": "Belem",
-			"America/Fortaleza": "Fortaleza",
-			"America/Recife": "Recife",
-			"America/Araguaina": "Araguaina",
-			"America/Maceio": "Maceio",
-			"America/Sao_Paulo": "Sao Paulo",
-			"America/Boa_Vista": "Boa Vista",
-			"America/Rio_Branco": "Rio Branco",
-		}
-	}
-	}
+				"America/Belem": "Belem",
+				"America/Fortaleza": "Fortaleza",
+				"America/Recife": "Recife",
+				"America/Araguaina": "Araguaina",
+				"America/Maceio": "Maceio",
+				"America/Sao_Paulo": "Sao Paulo",
+				"America/Boa_Vista": "Boa Vista",
+				"America/Rio_Branco": "Rio Branco",
+			},
+		},
+	},
 };

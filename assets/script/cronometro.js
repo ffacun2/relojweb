@@ -1,13 +1,13 @@
 let [miliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
 let control;
-let flagTime = 0,
-	ms = 0;
+let flagTime = 0;
 let contFlag = 0;
 
 let tableBody = document.querySelector(".table-body");
 
 function start() {
-	control = setInterval(cronometro);
+	inicial = Date.now();
+	control = setInterval(cronometro,1);
 	document.getElementById("start-btn").disabled = true;
 	document.getElementById("pause-btn").disabled = false;
 	document.getElementById("restart-btn").disabled = true;
@@ -50,14 +50,16 @@ function reset() {
 function flag() {
 	contFlag++;
 	document.querySelector(".flag-conteiner").style.display = "block";
-	inicial = new Date(flagTime);
-
+	// flagTime = new Date();
+	
 	let [flagHour, flagMinute, flagSecond, flagMilisecond] = [
-		Math.round((ms - flagTime) / (1000 * 60 * 60)),
-		Math.round((ms - flagTime) / (1000 * 60)),
-		Math.round((ms - flagTime) / 1000),
-		ms - flagTime,
+		Math.floor((Date.now() - inicial) / (1000 * 60 * 60)),
+		Math.floor(((Date.now() - inicial) % (1000 * 60 * 60)) / (1000 * 60)),
+		Math.floor(((Date.now() - inicial) % (1000 * 60)) / 1000),
+		Date.now() - inicial,
 	];
+	console.log(new Date().setMilliseconds(Date.now-inicial));
+	inicial = Date.now();
 	let msj = "Mensaje";
 	let trFlag = document.createElement("tr");
 	trFlag.innerHTML = `
@@ -75,7 +77,6 @@ function flag() {
                 	`;
 	tableBody.insertBefore(trFlag, tableBody.children[0]);
 
-	flagTime = ms;
 }
 
 function cronometro() {
