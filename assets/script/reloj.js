@@ -17,7 +17,7 @@ const watches = JSON.parse(localStorage.getItem('watches') || "[]");
 let isUpdate = false,
 	updateId,
 	watchId;
-let fixed = new Date();
+
 
 
 //Devuelve Horario de la zona horaria del parametro establecido
@@ -199,7 +199,7 @@ zoneTag.addEventListener('change', () => {
 // getTZDate('BR',"America/Manaus")
 
 function localTime() {
-	
+	let fixed = new Date();
 	locationGral.innerHTML = "Hora local"
 	timeGral.innerHTML = `${fixed.getHours().toString().padStart(2,"0")}:${fixed.getMinutes().toString().padStart(2,"0")}:${fixed.getSeconds().toString().padStart(2,"0")}`
 	// console.log(dateGral)
