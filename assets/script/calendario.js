@@ -67,8 +67,9 @@ const renderCalendar = () => {
 
 	let days = "";
 // console.log(prevLastDay-16);
+	let newDate = new Date();
 	for (let x = firstDayIndex; x > 0; x--) {
-		if((prevLastDay-x+1) == new Date().getDate() && date.getMonth() == new Date().getMonth()+1 && date.getFullYear() === new Date().getFullYear() )
+		if((prevLastDay-x+1) == newDate.getDate() && (date.getMonth()-1 == newDate.getMonth() || (0 == date.getMonth()&& date.getFullYear()-1 == newDate.getFullYear())) )
 			days += `<div class="prev-date today">${prevLastDay - x + 1}</div>`;
 		else
 			days += `<div class="prev-date">${prevLastDay - x + 1}</div>`;
@@ -76,7 +77,7 @@ const renderCalendar = () => {
 
 	for (let i = 1; i <= lastDay; i++) {
 		if (
-			i === new Date().getDate() && date.getMonth() === new Date().getMonth() && date.getFullYear() === new Date().getFullYear()
+			i === newDate.getDate() && date.getMonth() === newDate.getMonth() && date.getFullYear() === newDate.getFullYear()
 		) {
 			days += `<div class="today">${i}</div>`;
 		} else {
@@ -85,7 +86,7 @@ const renderCalendar = () => {
 	}
 
 	for (let j = 1; j <= relleno; j++) {
-		if(j == new Date().getDate() && date.getMonth() == new Date().getMonth()-1 && date.getFullYear() === new Date().getFullYear() )
+		if(j == newDate.getDate() && (date.getMonth()+1 == newDate.getMonth() || (11 == date.getMonth() && date.getFullYear()+1 == newDate.getFullYear())) )
 			days += `<div class="next-date today">${j}</div>`;		
 		else
 			days += `<div class="next-date">${j}</div>`;

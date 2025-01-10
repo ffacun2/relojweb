@@ -3,6 +3,8 @@ let [flagHour, flagMinute, flagSecond, flagMilisecond] = [0,0,0,0];
 let control;
 let flagTime = 0;
 let contFlag = 0;
+let totalElapsedTime = 0;
+let lastFlagTime = 0;
 
 let tableBody = document.querySelector(".table-body");
 
@@ -48,44 +50,56 @@ function reset() {
 	document.querySelector(".flag-conteiner").style.display = "none";
 }
 
-function flag() {
-	contFlag++;
-	console.log(flagHour,flagMinute,flagSecond,flagMilisecond);
+
+function flag(){
+	let currentFlagTime = totalElapsedTime;
+	let flagElapsedTime = currentFlagTime - lastFlagTime;
+	lastFlagTime = currentFlagTime;
+
+	let flagHours = Math.floor(flagElapsedTime / 3600000);
+	let flagMinutes = Math.floor((flagElapsedTime % 3600000) / 60000);
+	let flagSeconds = Math.floor((flagElapsedTime % 60000) / 1000);
+	let flagMiliseconds = flagElapsedTime % 1000;
+
+	let flagTimeString = (flagHours < 10 ? "0" + flagHours : flagHours) + ":" +
+                         (flagMinutes < 10 ? "0" + flagMinutes : flagMinutes) + ":" +
+                         (flagSeconds < 10 ? "0" + flagSeconds : flagSeconds) + "." +
+                         (flagMiliseconds < 100 ? "0" + Math.floor(flagMiliseconds / 10) : Math.floor(flagMiliseconds / 10));
+
+    let totalTimeString = (hours < 10 ? "0" + hours : hours) + ":" +
+                          (minutes < 10 ? "0" + minutes : minutes) + ":" +
+                          (seconds < 10 ? "0" + seconds : seconds) + "." +
+                          (miliseconds < 100 ? "0" + Math.floor(miliseconds / 10) : Math.floor(miliseconds / 10));
+
+	let row = document.createElement("tr");
+	row.innerHTML = `<td>${++contFlag}</td><td>${flagTimeString}</td><td>${totalTimeString}</td>`;
+	tableBody.appendChild(row);
 	document.querySelector(".flag-conteiner").style.display = "block";
-
-	let trFlag = document.createElement("tr");
-	trFlag.innerHTML = `
-					<th>${contFlag}</th>
-                    <th>${flagHour.toString().padStart(2, "0")}:${flagMinute.toString().padStart(2, "0")}:${flagSecond.toString().padStart(2, "0")} . ${flagMilisecond.toString().padStart(2, "0")}</th>
-                    <th>${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")} . ${miliseconds.toString().padStart(2, "0")}</th>
-                	`;
-	tableBody.insertBefore(trFlag, tableBody.children[0]);
-
-	[flagHour, flagMinute, flagSecond, flagMilisecond] = [0, 0, 0, 0];
 }
 
+
 function cronometro() {
-	miliseconds += 1;
-	flagMilisecond +=1;
+    let now = Date.now();
+    let elapsedTime = now - inicial;
+    totalElapsedTime += elapsedTime;
+    inicial = now;
 
-	if (miliseconds > 99) {
-		seconds++, (miliseconds = 0);
-		flagSecond++,(flagMilisecond = 0);
-	}
-	if (seconds > 59) {
-		minutes++, (seconds = 0);
-		flagMinute++,(flagSecond = 0);
-	}
-	if (minutes > 59) {
-		hours++, (minutes = 0);
-		flagHour++,(flagMinute = 0);
-	}
-	if (hours > 59) {
-		reset();
-	}
+    miliseconds += elapsedTime;
+    if (miliseconds >= 1000) {
+        seconds++;
+        miliseconds -= 1000;
+    }
+    if (seconds >= 60) {
+        minutes++;
+        seconds -= 60;
+    }
+    if (minutes >= 60) {
+        hours++;
+        minutes -= 60;
+    }
 
-	document.querySelector(".hh").innerHTML = `${hours.toString().padStart(2, "0")}:`;
-	document.querySelector(".mm").innerHTML = `${minutes.toString().padStart(2, "0")}:`;
-	document.querySelector(".ss").innerHTML = `${seconds.toString().padStart(2, "0")}`;
-	document.querySelector(".ms").innerHTML = `.${miliseconds.toString().padStart(2, "0")}`;
+    document.querySelector(".hh").innerHTML = (hours < 10 ? "0" + hours : hours) + ":";
+    document.querySelector(".mm").innerHTML = (minutes < 10 ? "0" + minutes : minutes) + ":";
+    document.querySelector(".ss").innerHTML = (seconds < 10 ? "0" + seconds : seconds);
+    document.querySelector(".ms").innerHTML = "." + (miliseconds < 100 ? "0" + Math.floor(miliseconds / 10) : Math.floor(miliseconds / 10));
 }

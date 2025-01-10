@@ -19,7 +19,7 @@
 </head>
 <body>
 
-    <div class="header">
+    <header class="header">
        <div class="logo-icon">
             <span>Reloj</span>
         </div>
@@ -31,11 +31,11 @@
                 <span class="material-symbols-outlined">menu</span>
             </div>
         </div>
-    </div>
+    </header>
 
-    <div class="main">
+    <main class="main">
 
-        <div class="nav">
+        <nav class="nav">
             <ul>
                 <li class="active"><a href="index.html"><span class="material-symbols-outlined">schedule</span>Reloj</a></li>
                 <li><a href="cronometro.html"><span class="material-symbols-outlined">timer</span>Cronometro</a></li>
@@ -43,9 +43,9 @@
                 <li><a href="alarma.html"><span class="material-symbols-outlined">alarm</span>Alarma</a></li>
                 <li><a href="calendario.html"><span class="material-symbols-outlined">calendar_month</span>Calendario</a></li>
             </ul>
-        </div>
+        </nav>
         
-        <div class="content">
+        <section class="content">
 
             <div class="tools">
                 
@@ -88,8 +88,8 @@
 
             </div>
             
-        </div>
-    </div>
+        </section>
+    </main>
 
      <div class="wrapper">
         <div class="popup-box">
@@ -129,15 +129,15 @@
         </div>
     </div>
     
-    <div class="box-confirm">
+    <div class="box-confirm" rol="dialog" aria-labelledby="confirm-title" aria-describedby="confirm-desc">
         <div class="confirm-conteiner">
             <div class="confirm-content">
-                <div class="message">
+                <div class="message" id="confirm-desc">
                     <p>¿Deseas Eliminar Esta Reloj?</p>
                 </div>
                  <div class="btn-box">
-                    <button id="cancel" class="close">Cancelar</button>
-                    <button id="accept-delete">Aceptar</button>
+                    <button id="cancel" class="close" aria-label="Cancelar">Cancelar</button>
+                    <button id="accept-delete" aria-label="Aceptar">Aceptar</button>
                 </div>
             </div>
         </div>
@@ -145,9 +145,9 @@
 
     
 <!-- link script main -->
-<script src="assets/script/script.js"></script>
-<script src="assets/script/paises.js"></script>
-<script src="assets/script/semanas.js"></script>
-<script src="assets/script/reloj.js"></script>
+<script src="assets/script/script.js" defer></script>
+<script src="assets/script/paises.js" defer></script>
+<script src="assets/script/semanas.js" defer></script>
+<script src="assets/script/reloj.js" defer></script>
 </body>
 </html>
